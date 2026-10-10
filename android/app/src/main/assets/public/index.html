@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>MEDIA AI — Your photos. Automatically.</title>
+    <meta name="description" content="Your photos. Automatically. AI-powered event photo community and facial recognition platform." />
+    <meta property="og:title" content="MEDIA AI — Your photos. Automatically." />
+    <meta property="og:description" content="AI-powered event photo community and facial recognition platform for campus events." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+      // MEDIA AI: open magic-link deep links (com.mediaai.app://home#access_token=...) inside the app
+      (function () {
+        function go(url) {
+          if (!url || url.indexOf("com.mediaai.app://") !== 0) return;
+          var i = url.search(/[#?]/);
+          var tail = i >= 0 ? url.slice(i) : "";
+          window.location.replace(window.location.origin + "/home" + tail);
+        }
+        function init() {
+          try {
+            var App = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App;
+            if (!App) return;
+            App.addListener("appUrlOpen", function (e) { go(e.url); });
+            App.getLaunchUrl().then(function (r) { if (r && r.url) go(r.url); });
+          } catch (err) { console.warn("Deep link setup failed", err); }
+        }
+        init();
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-CXLrc7qe.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-EcCzatP_.css">
+  </head>
+  <body class="bg-[#0b0d19] text-slate-100 antialiased selection:bg-purple-600/40 selection:text-white min-h-screen">
+    <div id="root"></div>
+  </body>
+</html>
+
